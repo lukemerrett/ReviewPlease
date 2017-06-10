@@ -2,6 +2,8 @@
     ViewBag.Title = "Home Page";
 }
 
+@model WhatsTheDiff.Models.StartReviewModel
+
 <div class="jumbotron">
     <h1>What's The Diff?</h1>
     <p class="lead">Better, Cleaner Reviews</p>
@@ -9,9 +11,25 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h2>Start a Review</h2>
         @using (Html.BeginForm())
         {
+            <fieldset>
+                <legend>Start a Review</legend>
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.GitPrUrl, 
+                                   new { @class = "col-md-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.GitPrUrl,
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = "https://github.com/{organisation}/{repository}/pull/{prId}"
+                            })
+                        @Html.ValidationMessageFor(model => model.GitPrUrl)
+                    </div>
+                </div>
+                <input type="submit" value="Start Review" />
+            </fieldset>
         }
     </div>
 </div>
