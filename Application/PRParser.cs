@@ -17,7 +17,7 @@ namespace Application
         /// <returns>A DTO containing the details required to query the PR.</returns>
         public static PrDetails Parse(string fullPrUrl)
         {
-            var match = ParsingExpression.Match(fullPrUrl);
+            var match = ParsingExpression.Match(fullPrUrl.ToLower());
 
             if (match.Success)
             {
@@ -29,7 +29,7 @@ namespace Application
                     PrNumber = int.Parse(match.Groups["Number"].Value)
                 };
             }
-            throw new NotImplementedException();
+            throw new Exception("Could not parse url");
         }
     }
 }
