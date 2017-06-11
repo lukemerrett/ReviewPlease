@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsTheDiff", "WhatsTheDiff\WhatsTheDiff.csproj", "{8D00BEFE-5015-4115-9774-9A491C490D6E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Endpoints", "2 - Endpoints", "{80133FE0-DF4E-4C79-B376-23121A76BBD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{378586D2-0320-4220-965C-6F71AF36A454}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Tests", "3 - Tests", "{938ABEAD-557B-45C2-AAF3-90DA086130A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D00BEFE-5015-4115-9774-9A491C490D6E} = {80133FE0-DF4E-4C79-B376-23121A76BBD2}
 	EndGlobalSection
 EndGlobal
