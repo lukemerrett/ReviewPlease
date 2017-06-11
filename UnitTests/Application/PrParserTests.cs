@@ -8,11 +8,13 @@ namespace UnitTests.Application
     public class PrParserTests
     {
         [Test]
-        public void GivenInvalidUrl_ThrowsException()
+        public void GivenInvalidUrl_ReturnedFailedOperation()
         {
             const string Url = "https://bob";
 
-            Assert.Throws<Exception>(() => PRParser.Parse(Url));
+            var response = PRParser.Parse(Url);
+
+            Assert.IsFalse(response.IsSuccess);
         }
 
         [Test]
@@ -20,12 +22,13 @@ namespace UnitTests.Application
         {
             const string Url = "https://github.com/my-org/my-repo/pull/342";
 
-            var details = PRParser.Parse(Url);
+            var response = PRParser.Parse(Url);
 
-            Assert.AreEqual("github.com", details.GithubHostName);
-            Assert.AreEqual("my-org", details.OrganisationName);
-            Assert.AreEqual("my-repo", details.RepositoryName);
-            Assert.AreEqual(342, details.PrNumber);
+            Assert.IsTrue(response.IsSuccess);
+            Assert.AreEqual("github.com", response.Result.GithubHostName);
+            Assert.AreEqual("my-org", response.Result.OrganisationName);
+            Assert.AreEqual("my-repo", response.Result.RepositoryName);
+            Assert.AreEqual(342, response.Result.PrNumber);
         }
     }
 }
